@@ -146,6 +146,7 @@ developed, and is currently being tested.
 \section{Introduction}
 
 \subsection{Intelligent Tutoring Systems}
+\label{ITSs}
 
 The prototype that is being developed falls under the category of
 Intelligent Tutoring Systems (ITS). An ITS is any software which
@@ -157,13 +158,13 @@ these emotions as input to a recommender system. This is achieved
 using neural networks as the classification model, and keystroke and
 mouse dynamics as the input to this model.
 
-The recommendation is performed over an implementation of the Simple
+The recommendation is performed over an implementation of the IMS Simple
 Sequencing (SS) specification. SS allows us to establish a precondition
 rule on each of the learning objects in a learning
 activity. Precondition rules are defined to restrain a learning object
 from being shown to the user, and allow other objects to be shown.
 
-%144 words
+%145 words
 
 \subsection{Affective Computing}
 One of the areas of study that Protoboard is leveraging is Affective
@@ -183,11 +184,29 @@ a module that determines if a student is cheating in a test.
 
 %149 words
 
-\subsection{Simple Sequencing}
+\subsection{IMS Simple Sequencing}
+
+"IMS Simple Sequencing (IMS SS) is a specification used to describe
+paths through a collection of learning activities. IMS SS declares
+the relative order in which electronic learning activities are to be
+presented to a learner and the conditions under which a resource is
+selected, delivered, or skipped during
+presentation. \cite{bailey2007ims}"
+
+As mentioned in \ref{ITSs}, precondition rules are given to the
+learning objects in the learning activities in Protoboard, which allow
+us to control the sequence in which these objects are presented to the
+user. The neural network models in Protoboard send predicted values
+for a student's mental states to the recommender system after the
+completion of an exercise, and the recommender system 
+
+%115 words
+
+\subsection{Recommender System}
 
 
-
-
+\bibliographystyle{abbrv}
+\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
 
 \balancecolumns
 % That's all folks!
