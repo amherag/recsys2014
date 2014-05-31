@@ -116,7 +116,7 @@ Alejandra Mancilla\\
 \begin{abstract}
 This work presents a method based on keystroke and mouse dynamics for
 the analysis of a student's sentiments while interacting with an
-intelligent tutoring system called Protoboard, which focuses on the
+intelligent tutoring system called Protoboard (http://protoboard.org/), which focuses on the
 teaching of computer programming. The data gathered by the keystroke
 and mouse dynamics is used to recommend a sequence of programming
 exercises for a student that is interacting with the system. This
@@ -132,16 +132,14 @@ system to determine a better sequencing of the exercises to be
 presented to the student. A prototype of the system has been
 developed, and is currently being tested.
 \end{abstract}
-%169 words
+%172 words
 
-% A category with the (minimum) three required fields
-\category{H.4}{Information Systems Applications}{Miscellaneous}
-%A category including the fourth, optional field follows...
-\category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures]
+\category{H.5.2}{User Interfaces}{Input devices and strategies}
 
-\terms{Theory}
+\terms{Human Factors} % NOT required for Proceedings
 
-\keywords{ACM proceedings, \LaTeX, text tagging} % NOT required for Proceedings
+\keywords{Affective Computing, Intelligent Tutoring Systems, Keyboard
+  Dynamics, Mouse Dynamics, Emotion Sensing, Neural Networks}
 
 \section{Introduction}
 
@@ -205,6 +203,8 @@ activity to show next.
 
 \subsection{Recommender System}
 
+\subsection{Neural Networks}
+
 %0 words
 
 \subsection{Keystroke Dynamics}
@@ -249,6 +249,33 @@ tracked, usually with a time interval between each record.
 
 
 \section{Proposed Method}
+
+This work focuses on implementing a module for Protoboard (http://app.protoboard.org/) that
+records, among other data, keystroke and mouse dynamics, which then
+will be preprocessed for a neural network to decide if a user was
+experiencing certain emotional states. The resulting predicted values
+will then be used for a recommender system for deciding what is the
+appropriate sequence of learning objects that should maximise and
+minimise specific emotions in the student. The predicted emotion
+values will be used for other processes and tasks in the system, such
+as the recommendation of learning objects of a specific learning
+style, and classifying a student as being cheating during the course
+of a learning activity or not.
+
+%112 words
+
+\subsection{Keystroke and Mouse Dynamics}
+
+For the recording of the keypresses of the keyboard and mouse from a
+student, a JavaScript script was created. This script is attached to
+every programming exercise in a learning activity, as these are the
+learning objects where a user would write the most. Every keydown and
+keyup event is recorded, as well as the time in milliseconds in which the event
+occurred. All of these events are temporarily stored in the web
+browser, and when the user chooses to continue to the next activity,
+these records are sent to the server, where they get stored.
+
+%96 words
 
 \bibliographystyle{abbrv}
 \bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
