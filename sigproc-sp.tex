@@ -197,13 +197,58 @@ As mentioned in \ref{ITSs}, precondition rules are given to the
 learning objects in the learning activities in Protoboard, which allow
 us to control the sequence in which these objects are presented to the
 user. The neural network models in Protoboard send predicted values
-for a student's mental states to the recommender system after the
-completion of an exercise, and the recommender system 
+for a student's mental states to the implementation of IMS SS after the
+completion of an exercise, and then Simple Sequencing decides what
+activity to show next.
 
-%115 words
+%123 words
 
 \subsection{Recommender System}
 
+%0 words
+
+\subsection{Keystroke Dynamics}
+\label{KD}
+
+Keystroke Dynamics (KD) is the information about the rhytm and manner
+in which an individual presses the keys of a keyboard or
+keypad. Usually, there are two events that can be recorded from the
+interaction with a keyboard: a keydown event, which occurs when a key
+is fully pressed and hasn't been released; and a keyup event, which
+occurs when a key has been released of its pressed state. These events
+are recorded alongside the time when they occured.
+
+The information recorded often needs to be preprocessed in order to
+serve as input to other processes, such as identificaiotn and
+authentication procedures, and emotion interpretation in software
+systems. In general, this preprocessing usually results in a
+collection of lapses of time between one event and another in the
+keypresses.
+
+%129 words
+
+\subsection{Mouse Dynamics}
+
+Mouse Dynamics (MD) is an extraction and processing of information
+very similar to KM \ref{KD}, but with some key differences. The first
+notable difference is that a mouse usually has only from three to four
+keys (left button, right button, mouse wheel button, and some mouse
+models have a middle button) that a user can press. But some mouse
+models present seven buttons or more, mainly those designed for video
+games. This can pose a problem, because computer mouses lack the
+standardization that computer keyboards present. The second difference 
+is that a computer mouse can be tracked by its position in a plane.
+
+Similar to KD, MD usually record the keydown and keyup events of its
+different buttons, and additionally, different mouse positions can be
+tracked, usually with a time interval between each record.
+
+%135
+
+\subsection{Protoboard}
+
+
+\section{Proposed Method}
 
 \bibliographystyle{abbrv}
 \bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
