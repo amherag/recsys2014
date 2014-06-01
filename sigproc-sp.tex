@@ -116,7 +116,7 @@ Alejandra Mancilla\\
 \begin{abstract}
 This work presents a method based on keystroke and mouse dynamics for
 the analysis of a student's sentiments while interacting with an
-intelligent tutoring system called Protoboard (http://protoboard.org/), which focuses on the
+intelligent tutoring system called Protoboard (http://www.protoboard.org/), which focuses on the
 teaching of computer programming. The data gathered by the keystroke
 and mouse dynamics could be used % could be used as a factor for recommending  
 %Es importante que se entienda que estos datos se usan en conjunto con
@@ -160,6 +160,19 @@ developed, and is currently being tested.
   Dynamics, Mouse Dynamics, Emotion Sensing, Neural Networks}
 
 \section{Introduction}
+\label{introduction}
+
+This paper is structured in three parts: an Introduction (Section
+\ref{introduction}), in which general terms related to this work are
+explained, as well as its most important components; the Proposed
+Method (Section \ref{proposed-method}, where more detailed information
+is presented about the development of an emotion sensing and
+recommender system modules for the Intelligent Tutoring System,
+Protoboard; and a Discussion (Section \ref{discussion}), where the
+current and future steps are explained in order to understand the
+final purpose of the project.
+
+%83 words
 
 \subsection{Intelligent Tutoring Systems}
 \label{ITSs}
@@ -201,6 +214,7 @@ a module that determines if a student is cheating in a test.
 %149 words
 
 \subsection{IMS Simple Sequencing}
+\label{IMS-SS}
 
 "IMS Simple Sequencing (IMS SS) is a specification used to describe
 paths through a collection of learning activities. IMS SS declares
@@ -217,13 +231,27 @@ for a student's mental states to the implementation of IMS SS after the
 completion of an exercise, and then Simple Sequencing decides what
 activity to show next.
 
-%123 words
+Figure \ref{fig:navigation-tree} shows a navigation tree drawn from a
+learning activity defined in IMS SS, and the display of a learning
+object, i.e. a video, on the right.
 
-\subsection{Recommender System}
+\begin{figure}
+  \centering
+  \epsfig{file=navigation-tree.eps, width=3.5in}
+  \caption{Navigation tree (left) and a learning object (right)}
+  \label{fig:navigation-tree}
+\end{figure}
+
+%155 words
 
 \subsection{Artificial Neural Networks}
 \label{ANN}
-%0 words
+
+An Artificial Neural Network (ANN) is a computational tool, which is based
+on how biological neural networks work. ANNs are used primarily for
+machine learning and pattern recognition tasks.
+
+%29 words
 
 \subsection{Keystroke Dynamics}
 \label{KD}
@@ -263,6 +291,31 @@ tracked, usually with a time interval between each record.
 
 %135
 
+\subsection{Programming Exercises}
+
+The programming exercises in the prototype of Protoboard are currently
+meant to teach the programming language Python. A complete module has
+been developed that accepts a students' possible solutions to a
+programming problem, evaluate the program's code, determine if the
+solution is correct or not, and return a message telling the users if
+they solved the problem or not. If the student couldn't solve
+the problem correctly, a group of test cases are shown in order to hint them
+on what they did wrong and how they can improve their solutions.
+
+Figure \ref{fig:exercise} illustrates a programming exercise in
+Protoboard. Students can write their solutions in the text editor
+in the top, read instructions on what is the problem to solve, and
+receive feedback when changing to the "results'' tab.
+
+\begin{figure}
+  \centering
+  \epsfig{file=exercise.eps, width=3.5in}
+  \caption{A sample programming exercise in a learning activity in Protoboard}
+  \label{fig:exercise}
+\end{figure}
+
+% 131 words
+
 \subsection{Experience Sampling Method}
 \label{ESM}
 
@@ -273,12 +326,24 @@ time. The method is mainly designed to gather subjective data from
 human beings.
 
 ESM is used in this work to ask the users of Protoboard, every time
-they finish an excersie, how they were feeling during their solving of
+they finish an exersie, how they were feeling during their solving of
 the programming problem.
 
 %75 words
 
 \subsection{Protoboard}
+
+Protoboard (http://www.protoboard.org) is, in a broad sense, an
+Interactive Intelligent System, and specifically for this work, it is
+an Intelligent Tutoring System.
+
+Protoboard is a work in progress, and is currently implementing
+modules based on machine learning and intelligent computing
+techniques, with the purpose of enhancing the student's experience
+while learning.
+
+%54 words
+
 
 \subsection{Flow}
 
@@ -294,6 +359,7 @@ state of flow.
 %80 words
 
 \section{Proposed Method}
+\label{proposed-method}
 
 This work focuses on implementing a module for Protoboard (http://app.protoboard.org/) that
 records, among other data, keystroke and mouse dynamics, which then
@@ -329,7 +395,7 @@ occurred since the last reading, a record isn't stored.
 \subsection{Experience Sampling Method}
 \label{PM-ESM}
 
-After every programming excersice in a learning activity in
+After every programming exercise in a learning activity in
 Protoboard, an ESM \ref{ESM} is applied to the student to measure their levels
 of boredom, relaxation, distraction, concentration, and
 excitement. The students are instructed to answer the ESM,
@@ -366,7 +432,7 @@ database in the server.
 
 %195 words
 
-\subsection{Neural Network}
+\subsection{Neural Networks}
 
 An artificial neural network (see \ref{ANN}) is trained using the data generated
 by the users while solving the programming exercises in the learning
@@ -379,18 +445,69 @@ expecting that a very basic architecture could be sufficient.
 
 %75 words
 
-\subsection{Emotions}
+\subsection{Emotion Sensing}
 
 As has been noted before, in this work we are measuring six different
 emotions from the user: frustration, boredom, relaxation, distraction,
 concentration, and excitement. These emotions were chosen as they are
-expected to have a correlation with the mental state of flow \ref{flow}.
+expected to have a correlation with the mental state of flow (see
+\ref{flow}). The system doesn't try to predict flow, as a hypothesis
+has been established that this concept is not known, or known in a
+very vague way, by the majority of people, as a consequence of the
+work conducted in \ref{flow-amaury}.
 
-%44 words
+For the student to achieve a flow, or flow-like, mental state while
+interacting with the learning activities presented in Protoboard, is
+the final objective of this research.
+
+%115 words
+
+\subsection{Recommender System}
+
+The recommender system in Protoboard is based on the mechanics of IMS
+SS (see \ref{IMS-SS}) and the predicted values of the emotions of its
+users. The values calculated by the neural networks are sent to the
+Simple Sequencing module, and they are injected into the precondition
+rules of the next learning activity in the learning activity that the student is
+currently coursing.
+
+For example, a learning object could have this precondition rule:
+
+\textit{if frustration is low then skip}
+
+This learning object would only be shown to a user if their predicted
+frustration value is low.
+
+The precondition rules could be defined by an instructor, and the
+system would force the student to follow a sequence of exercises as
+dictated by the rules pre-established by the student's tutor.
+
+%130
+
+\section{Discussion}
+\label{discussion}
+
+The emotion sensing and recommender system modules presented in this
+paper have been successfully developed, and are currently being
+tested. For the current experiments, 100 students have been asked to
+participate. They were asked to complete a tutorial that consists of
+ten exercises, and three videos. After the completion of the
+experiment, a preprocessing of the keystroke and mouse dynamics must
+be performed before the artificial neural networks can be constructed,
+and analyzed in terms of accuracy.
+
+The future work involves the improvement of the recommender system and
+the emotion sensing modules. Plans for the development of other
+modules that use the information generated by the users' keystroke and
+mouse dynamics have been made, such as a module that presents the
+student with hints for solving a programming exercise when it
+considers it as necessary, and a module that detects if a student is
+cheating.
+
+%145 words
 
 \bibliographystyle{abbrv}
 \bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
 
 \balancecolumns
-% That's all folks!
 \end{document}
