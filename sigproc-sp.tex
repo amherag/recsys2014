@@ -76,14 +76,14 @@
 %
 % 1st. author
 \alignauthor
-Amaury Hernandez-Aguila\\
+Amaury Hern\'andez-Aguila\\
        \affaddr{Tijuana Institute of Technology}\\
        \affaddr{Calzada Tecnologico s/n, Tomas Aquino}\\
        \affaddr{Tijuana, Mexico}\\
        \email{amherag@tectijuana.edu.mx}
 % 2nd. author
 \alignauthor
-Mario Garcia-Valdez\\
+Mario Garc\'ia-Valdez\\
        \affaddr{Tijuana Institute of Technology}\\
        \affaddr{Calzada Tecnologico s/n, Tomas Aquino}\\
        \affaddr{Tijuana, Mexico}\\
@@ -118,19 +118,30 @@ This work presents a method based on keystroke and mouse dynamics for
 the analysis of a student's sentiments while interacting with an
 intelligent tutoring system called Protoboard (http://protoboard.org/), which focuses on the
 teaching of computer programming. The data gathered by the keystroke
-and mouse dynamics is used to recommend a sequence of programming
-exercises for a student that is interacting with the system. This
-sequence of exercises affects the student's mental states during
+and mouse dynamics is used % could be used as a factor for recommending  
+%Es importante que se entienda que estos datos se usan en conjunto con otros, por ejemplo el nivel de dificultad de los ejercicios.
+to recommend a sequence of programming
+exercises for a student that is interacting with the system.
+This sequence of exercises affects the student's mental states during
 the course of the programming lessons and exercises, with the purpose
-of enhancing the learning experience of the student. The method
-focuses on maximising or minimising six mental states: frustration,
-boredom, relaxation, distraction, concentration, and excitement. For
-the prediction of these mental states, neural networks classify a
-student according to their keyboard and mouse dynamics into different
-degrees of the mental states. These degrees are used for a recommender
+of enhancing the learning experience of the student. 
+% Como sabemos que la secuencia de ejercicios afectan el estado mental del estudiante? Siempre hay que ser cautelosos con las afirmaciones, que evidencia tenemos de esto? Estamos peleando en un terreno hostil, ya que los que hacen sistemas de recomendacion no entran mucho en la discusión de sentimientos. Es mejor aligerar las cosas con algo como: Is expected that this sequence of exercises will affect the student's mental states during...
+%The method focuses on maximizing or minimizing /// Original 
+%¿Que te parece decir mejor algo como: The recommender algorithm considers a (measure?) of six mental states..? Es más fácil de comprobar, digamos estás aburrido puedo considerar eso para recomendarte un ejercicio. No siempre será posible y no sabemos que sentimientos serían los que debemos considerar etc. Lo mejor es partir de la idea de que cientificamente no sabemos muchas cosas.
+% No necesariamente vamos minimizar o maximizar los estados, ¿se habla de esto en los otros papers que haz leido?
+%Leyendo otra vez creo que esta mejor hablar del método de los keystrokes
+The method focuses on predicting a degree of % No se si es degree //Editado lo malo es que si lo aceptas hay que modificar un poco lo de abajo para que tenga sentido, ya que se repite lo de prediction  
+six mental states: frustration,
+boredom, relaxation, distraction, concentration, and excitement. 
+For the prediction of these mental states, an artificial neural network  classify a student according to their keyboard and mouse dynamics into different degrees of the mental states. 
+%En este caso estas mezclando dos cosas distintas: la clasificación asigna una clase a cada objeto (a menos que sea difusa) y la predicción si puede asignar el nivel esperado de cada métrica. Creo que solo estas prediciendo. 
+These degrees are used 
+for a recommender % as variables in a recommender system algorithm wich assignes a recommendation measure to each exercise. The algorithm also considers: the student's performance in previous excersises and the excercise level of difficulty, 
 system to determine a better sequencing of the exercises to be
 presented to the student. A prototype of the system has been
 developed, and is currently being tested.
+%  
+
 \end{abstract}
 %172 words
 
