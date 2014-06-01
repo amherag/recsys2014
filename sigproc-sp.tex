@@ -118,25 +118,32 @@ This work presents a method based on keystroke and mouse dynamics for
 the analysis of a student's sentiments while interacting with an
 intelligent tutoring system called Protoboard (http://protoboard.org/), which focuses on the
 teaching of computer programming. The data gathered by the keystroke
-and mouse dynamics is used % could be used as a factor for recommending  
-%Es importante que se entienda que estos datos se usan en conjunto con otros, por ejemplo el nivel de dificultad de los ejercicios.
-to recommend a sequence of programming
+and mouse dynamics could be used % could be used as a factor for recommending  
+%Es importante que se entienda que estos datos se usan en conjunto con
+%otros, por ejemplo el nivel de dificultad de los ejercicios.
+as a factor for recommending a sequence of programming
 exercises for a student that is interacting with the system.
-This sequence of exercises affects the student's mental states during
+This sequence of exercises is expected to affect the student's mental states during
 the course of the programming lessons and exercises, with the purpose
 of enhancing the learning experience of the student. 
 % Como sabemos que la secuencia de ejercicios afectan el estado mental del estudiante? Siempre hay que ser cautelosos con las afirmaciones, que evidencia tenemos de esto? Estamos peleando en un terreno hostil, ya que los que hacen sistemas de recomendacion no entran mucho en la discusión de sentimientos. Es mejor aligerar las cosas con algo como: Is expected that this sequence of exercises will affect the student's mental states during...
 %The method focuses on maximizing or minimizing /// Original 
 %¿Que te parece decir mejor algo como: The recommender algorithm considers a (measure?) of six mental states..? Es más fácil de comprobar, digamos estás aburrido puedo considerar eso para recomendarte un ejercicio. No siempre será posible y no sabemos que sentimientos serían los que debemos considerar etc. Lo mejor es partir de la idea de que cientificamente no sabemos muchas cosas.
 % No necesariamente vamos minimizar o maximizar los estados, ¿se habla de esto en los otros papers que haz leido?
-%Leyendo otra vez creo que esta mejor hablar del método de los keystrokes
-The method focuses on predicting a degree of % No se si es degree //Editado lo malo es que si lo aceptas hay que modificar un poco lo de abajo para que tenga sentido, ya que se repite lo de prediction  
-six mental states: frustration,
-boredom, relaxation, distraction, concentration, and excitement. 
-For the prediction of these mental states, an artificial neural network  classify a student according to their keyboard and mouse dynamics into different degrees of the mental states. 
+%Leyendo otra vez creo que esta mejor hablar del método de los
+%keystrokes
+
+The recommender algorithm considers a measure of six mental states:
+frustration, boredom, relaxation, distraction, concentration, and excitement.
+
+%The method focuses on predicting a degree of % No se si es degree //Editado lo malo es que si lo aceptas hay que modificar un poco lo de abajo para que tenga sentido, ya que se repite lo de prediction  
+%six mental states: frustration,
+%boredom, relaxation, distraction, concentration, and excitement. 
+For the prediction of these mental states, an artificial neural
+network classifies a student according to their keyboard and mouse dynamics into different degrees of the mental states. 
 %En este caso estas mezclando dos cosas distintas: la clasificación asigna una clase a cada objeto (a menos que sea difusa) y la predicción si puede asignar el nivel esperado de cada métrica. Creo que solo estas prediciendo. 
 These degrees are used 
-for a recommender % as variables in a recommender system algorithm wich assignes a recommendation measure to each exercise. The algorithm also considers: the student's performance in previous excersises and the excercise level of difficulty, 
+for a recommender % as variables in a recommender system algorithm wich assignes a recommendation measure to each exercise. The algorithm also considers: the student's performance in previous excersises and the exercise level of difficulty, 
 system to determine a better sequencing of the exercises to be
 presented to the student. A prototype of the system has been
 developed, and is currently being tested.
@@ -214,8 +221,8 @@ activity to show next.
 
 \subsection{Recommender System}
 
-\subsection{Neural Networks}
-
+\subsection{Artificial Neural Networks}
+\label{ANN}
 %0 words
 
 \subsection{Keystroke Dynamics}
@@ -256,8 +263,35 @@ tracked, usually with a time interval between each record.
 
 %135
 
+\subsection{Experience Sampling Method}
+\label{ESM}
+
+Experience Sampling Method (ESM) is a research methodology in which a
+group of questions is asked to a participant of an experiment about
+their feelings, opinions, ideas or emotions, at certain intervals of
+time. The method is mainly designed to gather subjective data from
+human beings.
+
+ESM is used in this work to ask the users of Protoboard, every time
+they finish an excersie, how they were feeling during their solving of
+the programming problem.
+
+%75 words
+
 \subsection{Protoboard}
 
+\subsection{Flow}
+
+Flow is a mental state where an individual, while performing an
+activity, experiences a feeling of focus or deep mental
+involvement, and enjoys the course of the activity \cite{cit:4}. Flow
+is closely related to motivation, the main difference being that
+motivation is the purpose or psychological cause of any action
+\cite{cit:16}. Thus, a person can be very motivated to execute and
+continue the execution of certain action, but not necessarily be in a
+state of flow.
+
+%80 words
 
 \section{Proposed Method}
 
@@ -287,9 +321,72 @@ browser, and when the user chooses to continue to the next activity,
 these records are sent to the server, where they get stored.
 
 Mouse positions are recorded every 100 milliseconds, only if the
-system detects that a change of position occurred. If no movement presents
+system detects that a change of position occurred. If no movement has
+occurred since the last reading, a record isn't stored.
 
-%96 words
+%127 words
+
+\subsection{Experience Sampling Method}
+\label{PM-ESM}
+
+After every programming excersice in a learning activity in
+Protoboard, an ESM \ref{ESM} is applied to the student to measure their levels
+of boredom, relaxation, distraction, concentration, and
+excitement. The students are instructed to answer the ESM,
+according to how they were feeling during their experience with the
+programming exercise they just solved, or tried to solve. The
+questions, or statements, presented to the student are the following:
+
+\begin{itemize}
+  \item I was feeling frustrated
+  \item I was feeling bored
+  \item I was feeling relaxed
+  \item I was feeling distracted
+  \item I was feeling concentrated
+  \item I was feeling excited
+\end{itemize}
+
+and a series of five likert-style possible answers are shown below the
+statements: "I strongly agree", "I agree", "Neutral", "I disagree",
+and "I strongly disagree." Figure \ref{fig:ESM-test} shows a sample
+ESM test (in Spanish) as presented in Protoboard.
+
+\begin{figure}
+  \centering
+  \epsfig{file=esm-test.eps, width=3.5in}
+  \caption{A sample of three of the six statements a student must
+    respond to in the Experience Sampling Method test.}
+  \label{fig:ESM-test}
+\end{figure}
+
+If users try to skip answering one of the questions, the system
+will forbid them to continue. If the user answers all the questions
+and continues to the next activity, the answers will be recorded in a
+database in the server.
+
+%195 words
+
+\subsection{Neural Network}
+
+An artificial neural network (see \ref{ANN}) is trained using the data generated
+by the users while solving the programming exercises in the learning
+activity, and tries to match, as outputs, the data generated by the
+answers in the ESM tests that followed each programming exercise.
+
+As Protoboard is currently under development, a definite architecture
+for the artificial neural networks doesn't exist yet, although we are
+expecting that a very basic architecture could be sufficient.
+
+%75 words
+
+\subsection{Emotions}
+
+As has been noted before, in this work we are measuring six different
+emotions from the user: frustration, boredom, relaxation, distraction,
+concentration, and excitement. These emotions were chosen as they are
+expected to have a correlation with the mental state of flow \ref{flow}.
+
+%44 words
 
 \bibliographystyle{abbrv}
 \bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
