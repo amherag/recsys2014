@@ -95,13 +95,6 @@ Alejandra Mancilla\\
        \affaddr{Calzada Tecnologico s/n, Tomas Aquino}\\
        \affaddr{Tijuana, Mexico}\\
        \email{alejandra.mancilla@gmail.com}
-\and  % use '\and' if you need 'another row' of author names
-% 4th. author
-\alignauthor
-% 5th. author
-\alignauthor
-% 6th. author
-\alignauthor
 }
 % There's nothing stopping you putting the seventh, eighth, etc.
 % author on the opening page (as the 'third row') but we ask,
@@ -346,17 +339,44 @@ while learning.
 
 
 \subsection{Flow}
+\label{flow}
 
 Flow is a mental state where an individual, while performing an
 activity, experiences a feeling of focus or deep mental
-involvement, and enjoys the course of the activity \cite{cit:4}. Flow
+involvement, and enjoys the course of the activity \cite{csiksczentmihalyi2004flow}. Flow
 is closely related to motivation, the main difference being that
 motivation is the purpose or psychological cause of any action
-\cite{cit:16}. Thus, a person can be very motivated to execute and
+\cite{schacter2010psychology}. Thus, a person can be very motivated to execute and
 continue the execution of certain action, but not necessarily be in a
 state of flow.
 
 %80 words
+
+\section{Related Work}
+\label{related-work}
+
+The work presented in this paper is highly influenced by the work of
+Clayton Epp, Michael Lippold, and Regan L. Mandryk
+\cite{epp2011identifying}, where Keyboard Dynamics are used to
+identify different emotional states. Other related work that have
+influenced this project, along with their descriptions, can be found below.
+
+D'Mello automatically measures flow by using image processing on the
+facial expressions of people \cite{d2008autotutor}. Woolf, Burelson, and Arroyo
+developed a system that monitors conversational cues, gross body
+language, and facial features to detect boredom, engagement,
+confusion, and frustration is presented \cite{woolf2007emotional}. Most studies employ
+manual means to measure the flow of an individual after or during the
+course of an activity \cite{lopez2011oxford}. There are, nevertheless, studies where the
+objective is to automatically estimate an individual's performance, as
+in the work by Endler, Rey, and Butz \cite{endler2012towards}, or other emotional states,
+such as interest, as analyzed by Schiefele, Krapp, and Winteler
+\cite{schiefele1992interest}. We can find plenty of research on the relationship between
+several emotions and the interaction of a user and an intelligent
+tutoring system, such as motivation \cite{astleitneraptitude},
+\cite{carletta1996assessing} and anxiety \cite{keeley2008curvilinear}.
+
+
 
 \section{Proposed Method}
 \label{proposed-method}
@@ -454,7 +474,7 @@ expected to have a correlation with the mental state of flow (see
 \ref{flow}). The system doesn't try to predict flow, as a hypothesis
 has been established that this concept is not known, or known in a
 very vague way, by the majority of people, as a consequence of the
-work conducted in \ref{flow-amaury}.
+work conducted in \cite{hernandez2014automatic}.
 
 For the student to achieve a flow, or flow-like, mental state while
 interacting with the learning activities presented in Protoboard, is
